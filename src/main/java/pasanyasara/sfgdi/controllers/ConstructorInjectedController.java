@@ -1,7 +1,9 @@
 package pasanyasara.sfgdi.controllers;
 
+import org.springframework.stereotype.Controller;
 import pasanyasara.sfgdi.services.GreetingService;
 
+@Controller
 public class ConstructorInjectedController {
     private final GreetingService greetingService;
 
