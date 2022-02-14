@@ -1,21 +1,18 @@
 package pasanyasara.sfgdi.controllers;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import pasanyasara.sfgdi.services.GreetingService;
 
 @Controller
-public class MyController {
-
+public class I18nController {
     private final GreetingService greetingService;
 
-    public MyController(GreetingService greetingService) {
+    public I18nController(@Qualifier("i18nService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
-    public String sayHello()
-    {
-        //System.out.println("Hello World!!");
-        //return "Hello Machan!!!";
+    public String sayHello(){
         return greetingService.sayGreeting();
     }
 }

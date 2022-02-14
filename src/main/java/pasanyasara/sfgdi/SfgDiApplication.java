@@ -3,10 +3,7 @@ package pasanyasara.sfgdi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import pasanyasara.sfgdi.controllers.ConstructorInjectedController;
-import pasanyasara.sfgdi.controllers.MyController;
-import pasanyasara.sfgdi.controllers.PropertyInjectedController;
-import pasanyasara.sfgdi.controllers.SetterInjectedController;
+import pasanyasara.sfgdi.controllers.*;
 
 import java.sql.SQLOutput;
 
@@ -17,11 +14,14 @@ public class SfgDiApplication {
 
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
 
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController") ;
+		System.out.println(i18nController.sayHello());
+
 		MyController myController = (MyController) ctx.getBean("myController");
 
-		String greeting = myController.sayHello();
 
-		System.out.println(greeting);
+		System.out.println("--------Primary Bean");
+		System.out.println(myController.sayHello());
 
 		System.out.println("-----Property");
 
